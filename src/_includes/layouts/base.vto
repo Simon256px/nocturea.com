@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="{{ ogImage }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="public/external/nocturea-mark.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="{{ fonts }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{ fonts }}" /></noscript>
+  <link rel="stylesheet" href="./global.css" />
+  {{- if styles }}
+  <style>
+{{ styles }}
+  </style>
+  {{- /if }}
+</head>
+<body>
+<div class="noc-bg">
+  <nav id="top" class="noc-nav">
+    <a href="index.html" class="noc-nav-logo">
+      <img src="public/external/nocturea-mark.svg" alt="Nocturea" class="noc-nav-logo-icon" />
+      <div>
+        <div class="noc-nav-logo-name">NOCTUREA</div>
+        <div class="noc-nav-logo-sub">// {{ navSub }}</div>
+      </div>
+    </a>
+    <div class="noc-nav-links">
+      {{- for item of nav }}
+      {{- set cls = [item.cta ? "noc-nav-cta" : null, item.key === active ? "active" : null].filter(Boolean).join(" ") }}
+      <a href="{{ item.url }}"{{ if cls }} class="{{ cls }}"{{ /if }}>{{ item.label }}</a>
+      {{- /for }}
+    </div>
+  </nav>
+
+  {{ if wrap === false }}
+  {{ content }}
+  {{ else }}
+  <main><div class="noc-wrap">
+    {{ content }}
+  </div>
+  </main>
+  {{ /if }}
+
+  <footer class="noc-footer">
+    <span>{{ copyright }}</span>
+    <ul class="noc-footer-links">
+      {{- for link of footerLinks }}
+      <li><a href="{{ link.url }}"{{ if link.external }} target="_blank" rel="noreferrer noopener"{{ /if }}>{{ link.label }}</a></li>
+      {{- /for }}
+    </ul>
+    <span class="noc-footer-mojang">Not affiliated with Mojang</span>
+  </footer>
+</div>
+</body>
+</html>

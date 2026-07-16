@@ -1,0 +1,30 @@
+# Site-wide data. Everything here is available to every page and layout,
+# so the nav, footer and copyright now live in exactly one place.
+layout: layouts/base.vto
+
+ogImage: https://nocturea.com/public/nocturea-og.png
+copyright: "© 2020 – 2027 NOCTUREA. All rights reserved."
+fonts: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+
+nav:
+  - key: home
+    label: HOME
+    url: index.html
+  - key: about
+    label: ABOUT
+    url: about.html
+  - key: contact
+    label: CONTACT
+    url: contact.html
+    cta: true
+
+footerLinks:
+  - label: SUPPORT
+    url: https://discord.gg/wQHZ2tgwYQ
+    external: true
+  - label: FAQ
+    url: faq.html
+  - label: TERMS
+    url: terms.html
+  - label: PRIVACY
+    url: privacy.html

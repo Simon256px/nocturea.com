@@ -1,0 +1,10 @@
+# Lume build output - regenerate with `deno task build`
+_site/
+
+# Deno
+.deno/
+deno.lock
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,92 @@
+---
+title: "Nocturea - Hosting"
+description: "Explore Nocturea's web hosting page for reliable hosting solutions."
+navSub: "HOSTING"
+# Page-scoped CSS: only the pricing table needs it, so it stays off the other
+# 11 pages. The layout renders this into a <style> tag in the head.
+styles: |
+  .hosting-table { width:100%; border-collapse:collapse; font-family:var(--font-mono); font-size:13px; margin-bottom:64px; }
+  .hosting-table th { background:var(--c-bg-2); border:2px solid var(--c-border); padding:14px 20px; text-align:center; font-size:11px; letter-spacing:.1em; color:var(--c-text-3); }
+  .hosting-table th.plan-name { font-size:16px; font-weight:700; color:var(--c-text); letter-spacing:.06em; }
+  .hosting-table th.plan-price { color:var(--c-accent); font-size:14px; }
+  .hosting-table td { border:1px solid var(--c-border); padding:12px 20px; color:var(--c-text-2); text-align:center; }
+  .hosting-table td:first-child { text-align:left; color:var(--c-text-3); font-weight:500; }
+  .hosting-table tr:hover td { background:rgba(70,214,140,.04); }
+  .hosting-table .check { color:var(--c-accent); font-size:16px; }
+  .hosting-table a.plan-btn { display:inline-block; padding:8px 18px; background:var(--c-accent); color:var(--c-accent-dk); font-weight:700; font-size:11px; letter-spacing:.06em; text-decoration:none; transition:background .15s; }
+  .hosting-table a.plan-btn:hover { background:var(--c-accent-lt); }
+---
+    <div class="noc-service-hero">
+      <img src="public/external/hosting-hero.svg" alt="Hosting" loading="eager" style="image-rendering:pixelated;" />
+      <div class="noc-service-hero-overlay">
+        <div class="noc-service-hero-label">// SERVICE.HOSTING</div>
+        <h1>Nocturea <span>Hosting</span></h1>
+      </div>
+    </div>
+
+    <div class="noc-service-grid">
+      <div class="noc-service-img">
+        <img src="public/external/hosting-vision.svg" alt="Plesk Panel" loading="lazy" style="image-rendering:pixelated;" />
+      </div>
+      <div class="noc-service-step">
+        <div class="noc-service-step-label">// 01 — ADVANCED CONTROL PANEL</div>
+        <h2>Advanced Control Panel</h2>
+        <p>Nocturea uses Plesk, an industry leading web control panel that has everything you need to power your website.</p>
+        <p>Easily create SSL certificates, email accounts, redirects, add domains, or install WordPress with our one-click Softaculous installer.</p>
+      </div>
+    </div>
+
+    <div class="noc-section-header">
+      <h2>WHY CHOOSE US</h2>
+      <div class="noc-section-dash"></div>
+    </div>
+    <div class="noc-features" style="margin-bottom:64px;">
+      <div class="noc-feature">
+        <div class="noc-feature-n">01</div>
+        <h3>100% Uptime</h3>
+        <p>We keep your site online 24/7 — day or night, ensuring your services stay online and uninterrupted.</p>
+      </div>
+      <div class="noc-feature">
+        <div class="noc-feature-n">02</div>
+        <h3>Discord Support</h3>
+        <p>Our French based support team work around the clock with average response times under 30 min via Discord.</p>
+      </div>
+      <div class="noc-feature">
+        <div class="noc-feature-n">03</div>
+        <h3>Intuitive Panel</h3>
+        <p>With the world's leading web hosting control panel, set up and personalise your hosting plan exactly the way you want.</p>
+      </div>
+    </div>
+
+    <div class="noc-section-header">
+      <h2>HOSTING PLANS</h2>
+      <div class="noc-section-dash"></div>
+    </div>
+    <table class="hosting-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Feature</th>
+          <th><div class="plan-name">NIGHT</div><div class="plan-price">2.00€/mo</div><a href="contact.html" class="plan-btn">Request</a></th>
+          <th><div class="plan-name">SERENITY</div><div class="plan-price">3.50€/mo</div><a href="contact.html" class="plan-btn">Request</a></th>
+          <th><div class="plan-name">MYSTIC</div><div class="plan-price">5.00€/mo</div><a href="contact.html" class="plan-btn">Request</a></th>
+          <th><div class="plan-name">NOCTURNE</div><div class="plan-price">8.00€/mo</div><a href="contact.html" class="plan-btn">Request</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Addon Domains</td><td>5</td><td>10</td><td>25</td><td>Unlimited</td></tr>
+        <tr><td>MySQL Databases</td><td>5</td><td>10</td><td>25</td><td>Unlimited</td></tr>
+        <tr><td>RAM</td><td>2GB</td><td>5GB</td><td>10GB</td><td>20GB</td></tr>
+        <tr><td>SSD Storage</td><td>20GB</td><td>50GB</td><td>250GB</td><td>Unlimited</td></tr>
+        <tr><td>DDoS Protection</td><td>160Gbps</td><td>160Gbps</td><td>160Gbps</td><td>160Gbps</td></tr>
+        <tr><td>Full FTP Access</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Spam Filter</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Webmail</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>PHP Version Manager</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Softaculous</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+      </tbody>
+    </table>
+
+    <div class="noc-cta-bar">
+      <span>→ Need a custom plan? Contact us and we'll find the right fit.</span>
+      <a href="contact.html" class="noc-btn noc-btn-primary">CONTACT US</a>
+    </div>

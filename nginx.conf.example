@@ -1,0 +1,76 @@
+# nginx config for nocturea.com — replaces the old Apache .htaccess.
+#
+# The .htaccess file was inert on this server: nginx never reads .htaccess, so
+# the caching rules it defined were not being applied. This restores them.
+#
+# Install:
+#   sudo cp nginx.conf.example /etc/nginx/sites-available/nocturea.com
+#   sudo ln -s /etc/nginx/sites-available/nocturea.com /etc/nginx/sites-enabled/
+#   sudo nginx -t && sudo systemctl reload nginx
+#
+# Deploy: build locally with `deno task build`, then sync the _site/ output:
+#   rsync -avz --delete _site/ user@server:/var/www/nocturea.com/
+#
+# No Deno process runs in production — nginx serves the built files directly.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name nocturea.com www.nocturea.com;
+
+    # Redirect everything to HTTPS. Certbot usually manages this block for you;
+    # if it already rewrote your config, keep its version instead of this one.
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name nocturea.com www.nocturea.com;
+
+    ssl_certificate     /etc/letsencrypt/live/nocturea.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/nocturea.com/privkey.pem;
+
+    root /var/www/nocturea.com;
+    index index.html;
+
+    # ---- Security headers -------------------------------------------------
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # ---- Compression ------------------------------------------------------
+    # SVG is the win here: this site is mostly .svg, which is text and
+    # compresses well. Images (png) are already compressed — don't bother.
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 512;
+    gzip_types text/css text/html image/svg+xml application/xml font/otf;
+
+    # ---- Caching (ported from the old .htaccess) --------------------------
+    # Assets: 1 year, immutable.
+    location ~* \.(css|otf|woff|woff2|webp|png|jpe?g|svg|gif|ico)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        access_log off;
+    }
+
+    # HTML: 1 hour, must revalidate, so content edits go live promptly.
+    location ~* \.html$ {
+        expires 1h;
+        add_header Cache-Control "public, max-age=3600, must-revalidate" always;
+    }
+
+    # ---- Routing ----------------------------------------------------------
+    # URLs stay .html (Lume is configured with prettyUrls:false), so a plain
+    # file lookup is all that's needed.
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        internal;
+    }
+}
