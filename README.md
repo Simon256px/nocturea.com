@@ -93,11 +93,19 @@ so the column never resizes.
 
 ## Deploying
 
-Production is nginx serving static files. No Deno process runs on the server.
+Production is nginx on Fedora (`imoserver`, `fedora@83.228.192.128`) serving
+static files from `/srv/nocturea`. No Deno process runs on the server. The
+live vhost is `/etc/nginx/conf.d/nocturea.conf`.
 
 ```sh
 deno task build
-rsync -avz --delete _site/ user@server:/var/www/nocturea.com/
+rsync -avz --delete --rsync-path="sudo rsync" _site/ imoserver:/srv/nocturea/
+ssh imoserver 'sudo chcon -R -t httpd_sys_content_t /srv/nocturea'
 ```
 
-nginx config (caching, gzip, 404 handling) lives in `nginx.conf.example`.
+The `chcon` is not optional: SELinux is enforcing, and files arriving without
+the `httpd_sys_content_t` label make nginx return 404 on every page.
+
+`nginx.conf.example` in this repo is a *proposal* — it adds caching and gzip
+that the live vhost does not have, and assumes a `/var/www` root. Do not copy
+it over the running config without reconciling the two.
