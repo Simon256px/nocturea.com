@@ -1,0 +1,91 @@
+---
+layout: layouts/base.vto
+---
+<section class="noc-wrap noc-case-back">
+  <a href="/work.html" class="noc-back">← Work</a>
+</section>
+
+<section class="noc-wrap noc-case-head noc-rule-bottom">
+  <h1 class="noc-h1 noc-h1--case">{{ project.name }}</h1>
+  <div class="noc-case-meta">
+    <div>
+      <span class="noc-kicker">Client</span>
+      <p class="noc-case-meta__value">{{ project.client }}</p>
+    </div>
+    <div>
+      <span class="noc-kicker">Scope</span>
+      <p class="noc-case-meta__value">{{ project.kind }}</p>
+    </div>
+    <div>
+      <span class="noc-kicker">Year</span>
+      <p class="noc-case-meta__value">{{ project.year }}</p>
+    </div>
+    <div>
+      <span class="noc-kicker">Duration</span>
+      <p class="noc-case-meta__value">{{ project.duration }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="noc-wrap noc-case-hero">
+  <div class="noc-shot noc-shot--16x9"><span>{{ project.heroShot }}</span></div>
+</section>
+
+<section class="noc-wrap noc-section noc-split noc-reveal">
+  <h2 class="noc-label">The context</h2>
+  <p class="noc-statement">{{ project.context }}</p>
+</section>
+
+<section class="noc-wrap noc-section--flush-top noc-grid-2 noc-reveal">
+  {{- for tile of project.tiles }}
+  <div class="noc-shot noc-shot--1x1"><span>{{ tile }}</span></div>
+  {{- /for }}
+</section>
+
+<section class="noc-rule-top noc-reveal">
+  <div class="noc-wrap noc-section">
+    <h2 class="noc-label noc-label--spaced">The reasoning</h2>
+    {{- for reason of project.reasons }}
+    <div class="noc-reason">
+      <div>
+        <span class="noc-num noc-reason__num">{{ reason.num }}</span>
+        <h3 class="noc-h3">{{ reason.title }}</h3>
+      </div>
+      <p class="noc-prose">{{ reason.body }}</p>
+    </div>
+    {{- /for }}
+  </div>
+</section>
+
+<section class="noc-wrap noc-section--flush-top noc-reveal">
+  <div class="noc-shot noc-shot--21x9"><span>{{ project.wideShot }}</span></div>
+  <div class="noc-strip">
+    {{- for shot of project.strip }}
+    <div class="noc-shot noc-shot--3x4"><span>{{ shot }}</span></div>
+    {{- /for }}
+  </div>
+</section>
+
+<section class="noc-rule-top noc-reveal">
+  <div class="noc-wrap noc-section noc-split">
+    <h2 class="noc-label">What shipped</h2>
+    <div class="noc-deliverables">
+      {{- for deliverable of project.deliverables }}
+      <div class="noc-deliverable">
+        <span class="noc-deliverable__num">{{ deliverable.num }}</span>
+        <span>{{ deliverable.label }}</span>
+      </div>
+      {{- /for }}
+    </div>
+  </div>
+</section>
+
+<section class="noc-rule-top noc-reveal">
+  <div class="noc-wrap noc-next">
+    <div>
+      <span class="noc-kicker">Next project</span>
+      <p class="noc-next__name">{{ project.nextName }}</p>
+    </div>
+    <a href="{{ project.nextUrl }}" class="noc-btn noc-btn--outline">Open</a>
+  </div>
+</section>

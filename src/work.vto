@@ -1,0 +1,35 @@
+---
+title: "Work — Nocturea"
+description: "Identities and websites for communities, studios and independent brands. Every project started on a blank page."
+active: work
+---
+<section class="noc-wrap noc-section--hero">
+  <p class="noc-eyebrow noc-eyebrow--head">Work</p>
+  <h1 class="noc-h1">Three projects, each one started on a blank page.</h1>
+  <p class="noc-lead noc-hero-lead">Identities and websites for communities, studios and independent brands. Hover a row to see the work; open it to read why it looks the way it does.</p>
+</section>
+
+<section class="noc-wrap noc-work">
+  <div class="noc-work-list">
+    {{- for project of projects }}
+    <a href="{{ project.url }}" class="noc-work-row">
+      <span class="noc-work-row__num">{{ project.num }}</span>
+      <span>
+        <span class="noc-work-row__name">{{ project.name }}</span>
+        <span class="noc-work-row__line">{{ project.kind }} — {{ project.client }}</span>
+      </span>
+      <span class="noc-work-row__year">{{ project.year }}</span>
+    </a>
+    {{- /for }}
+  </div>
+
+  <aside class="noc-work-aside" aria-hidden="true">
+    {{- for project of projects }}
+    <div class="noc-work-preview">
+      <div class="noc-shot noc-shot--4x3"><span>{{ project.shot }}</span></div>
+      <p class="noc-work-preview__name">{{ project.name }}</p>
+      <p class="noc-body">{{ project.summary }}</p>
+    </div>
+    {{- /for }}
+  </aside>
+</section>

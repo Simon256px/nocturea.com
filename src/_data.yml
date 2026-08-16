@@ -1,30 +1,28 @@
 # Site-wide data. Everything here is available to every page and layout,
-# so the nav, footer and copyright now live in exactly one place.
+# so the nav, footer and copyright live in exactly one place.
 layout: layouts/base.vto
 
 ogImage: https://nocturea.com/public/nocturea-og.png
-copyright: "© 2020 – 2027 NOCTUREA. All rights reserved."
-fonts: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+copyright: "© 2020 – 2027 Nocturea"
+fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;900&display=swap"
 
+# global.css is served with a one-year immutable cache (see nginx.conf.example)
+# while HTML revalidates hourly. Bump this whenever the stylesheet changes, or
+# returning visitors get the new markup with the old styles.
+cssVersion: "2026-08-16"
+
+# Drives both the header nav and the footer links.
 nav:
-  - key: home
-    label: HOME
-    url: index.html
+  - key: work
+    label: Work
+    url: /work.html
+  - key: services
+    label: Services
+    url: /services.html
   - key: about
-    label: ABOUT
-    url: about.html
+    label: About
+    url: /about.html
   - key: contact
-    label: CONTACT
-    url: contact.html
+    label: Contact
+    url: /contact.html
     cta: true
-
-footerLinks:
-  - label: SUPPORT
-    url: https://discord.gg/wQHZ2tgwYQ
-    external: true
-  - label: FAQ
-    url: faq.html
-  - label: TERMS
-    url: terms.html
-  - label: PRIVACY
-    url: privacy.html
