@@ -9,12 +9,12 @@
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:image" content="{{ ogImage }}" />
   <meta property="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="/public/external/nocturea-mark.svg" type="image/svg+xml" />
+  <link rel="icon" href="/public/external/nocturea-mark.svg?v={{ assetVersion }}" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="{{ fonts }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="{{ fonts }}" /></noscript>
-  <link rel="stylesheet" href="/global.css?v={{ cssVersion }}" />
+  <link rel="stylesheet" href="/global.css?v={{ assetVersion }}" />
   {{- if styles }}
   <style>
 {{ styles }}
@@ -25,7 +25,7 @@
   <header class="noc-header">
     <div class="noc-wrap noc-header-inner">
       <a href="/index.html" class="noc-brand">
-        <img src="/public/external/nocturea-mark.svg" alt="" width="26" height="26" class="noc-brand-mark" />
+        <img src="/public/external/nocturea-mark.svg?v={{ assetVersion }}" alt="" width="26" height="26" class="noc-brand-mark" />
         <span class="noc-brand-name">Nocturea</span>
       </a>
       <nav class="noc-nav" aria-label="Main">

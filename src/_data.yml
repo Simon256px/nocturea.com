@@ -6,10 +6,13 @@ ogImage: https://nocturea.com/public/nocturea-og.png
 copyright: "© 2020 – 2027 Nocturea"
 fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;900&display=swap"
 
-# global.css is served with a one-year immutable cache (see nginx.conf.example)
-# while HTML revalidates hourly. Bump this whenever the stylesheet changes, or
-# returning visitors get the new markup with the old styles.
-cssVersion: "2026-08-18"
+# Cache buster for the stylesheet and the mark, which keep the same filename
+# every time their contents change. Neither is served with a Cache-Control
+# header, so browsers cache them heuristically — and favicons far longer than
+# that. Bump this whenever global.css or nocturea-mark.svg changes, otherwise
+# returning visitors keep the old one: that is how the green mark survived the
+# rebrand in tabs that had already seen it.
+assetVersion: "2026-08-18b"
 
 # Drives both the header nav and the footer links.
 nav:

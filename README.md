@@ -75,10 +75,12 @@ drops a figure 72 px so the grid reads as a spread rather than a table.
 **Shared styles** — `src/global.css`. It is organised top-down: tokens, base,
 layout primitives, typography, then one block per part of the site.
 
-> After changing `global.css`, bump `cssVersion` in `src/_data.yml`. The
-> stylesheet is served with a one-year immutable cache while HTML revalidates
-> hourly, so without the bump returning visitors get new markup with old
-> styles.
+> After changing `global.css` **or** `public/external/nocturea-mark.svg`, bump
+> `assetVersion` in `src/_data.yml`. Both keep the same filename across
+> changes and neither is served with a `Cache-Control` header, so browsers
+> cache them heuristically — favicons for far longer than that. Without the
+> bump, returning visitors keep the old file: that is how the green mark
+> survived the rebrand in tabs that had already loaded it.
 
 ## Design system
 
