@@ -939,6 +939,16 @@ svg {
   opacity: 1;
 }
 
+/* The three screenshots are a square, a landscape and a very tall page. Left
+   at their natural ratios the panel is sized by the tallest and the other two
+   float in dead space, so every preview is cropped to one box from the top —
+   where the head of a page or an app window actually is. */
+.noc-work-preview .noc-frame img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .noc-work-preview__name {
   margin: 20px 0 0;
   font-size: 13px;
