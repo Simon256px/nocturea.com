@@ -9,7 +9,7 @@ fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;90
 # global.css is served with a one-year immutable cache (see nginx.conf.example)
 # while HTML revalidates hourly. Bump this whenever the stylesheet changes, or
 # returning visitors get the new markup with the old styles.
-cssVersion: "2026-08-16"
+cssVersion: "2026-08-18"
 
 # Drives both the header nav and the footer links.
 nav:

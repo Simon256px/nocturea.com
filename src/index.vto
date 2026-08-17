@@ -43,7 +43,10 @@ active: home
   <div class="noc-grid-3">
     {{- for project of projects.slice(0, 3) }}
     <a href="{{ project.url }}" class="noc-project-card">
-      <div class="noc-shot noc-shot--4x5"><span>{{ project.shot }}</span></div>
+      <div class="noc-project-card__shot">
+        <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
+             alt="" loading="lazy" />
+      </div>
       <div class="noc-project-card__meta">
         <span class="noc-project-card__name">{{ project.name }}</span>
         <span class="noc-project-card__year">{{ project.year }}</span>

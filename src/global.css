@@ -507,40 +507,133 @@ svg {
 }
 
 /* --------------------------------------------------------------------------
-   Image placeholders
+   Screenshots
 
-   Hatched frames standing in for screenshots. Swap a `.noc-shot` for an
-   `<img>` once the real asset exists; the aspect-ratio modifiers give the
-   layout the same shape either way.
+   A screenshot is shown in three nested parts:
+
+     .noc-stage   the colour it is matted on
+     .noc-frame   the window: border, shadow, title bar
+     img          the shot itself, at its natural ratio
+
+   The matting colour, border and shadow differ per project — a white desktop
+   app and a dark web app cannot share a backdrop — so they arrive as the
+   --stage-* custom properties, set from src/_data/projects.js.
    -------------------------------------------------------------------------- */
 
-.noc-shot {
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  border: 1px solid var(--c-line-soft);
-  background-color: var(--c-surface);
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgb(255 106 61 / 0.1) 0 1px,
-    transparent 1px 9px
-  );
-  transition: border-color 0.18s var(--ease);
+.noc-stage {
+  padding: clamp(28px, 5vw, 80px);
+  background: var(--stage-bg, var(--c-surface));
 }
 
-.noc-shot span {
+.noc-stage--tile {
+  padding: clamp(20px, 3.2vw, 44px);
+}
+
+.noc-frame {
+  overflow: hidden;
+  border: var(--stage-border, 1px solid var(--c-line-soft));
+  background: #0d0d0f;
+  box-shadow: var(--stage-shadow, 0 30px 80px rgb(0 0 0 / 0.5));
+}
+
+.noc-frame--hero {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+/* The Work preview panel: rounded and lighter, it sits on the page itself
+   rather than on a stage. */
+.noc-frame--soft {
+  border: 1px solid var(--c-line-soft);
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.5);
+}
+
+.noc-frame img {
+  width: 100%;
+  height: auto;
+  background: #0a0a0c;
+}
+
+.noc-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 15px;
+  border-bottom: var(--stage-border, 1px solid var(--c-line));
+  background: var(--c-surface);
+}
+
+.noc-frame--soft .noc-frame__bar {
+  padding: 9px 12px;
+  gap: 6px;
+  border-bottom-color: var(--c-line);
+}
+
+.noc-frame__dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  background: #2c2c30;
+}
+
+.noc-frame--soft .noc-frame__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.noc-frame__url {
+  /* min-width:0 lets a long URL ellipsis instead of forcing the bar — and
+     with it the whole figure — wider than its column on a narrow screen. */
+  min-width: 0;
+  margin-left: 14px;
+  overflow: hidden;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #8e8a83;
+}
+
+.noc-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.noc-figure figcaption {
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--c-text-4);
 }
 
-.noc-shot--1x1 { aspect-ratio: 1 / 1; }
-.noc-shot--3x4 { aspect-ratio: 3 / 4; padding: 18px; }
-.noc-shot--4x5 { aspect-ratio: 4 / 5; padding: 18px; }
-.noc-shot--4x3 { aspect-ratio: 4 / 3; }
-.noc-shot--16x9 { aspect-ratio: 16 / 9; padding: 24px; }
-.noc-shot--21x9 { aspect-ratio: 21 / 9; padding: 24px; }
+/* A detail shot floats inside its matting rather than filling it. */
+.noc-tile-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--stage-border, 1px solid var(--c-line-soft));
+  box-shadow: var(--stage-shadow, 0 30px 80px rgb(0 0 0 / 0.5));
+}
+
+.noc-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 40px;
+}
+
+.noc-gallery--single {
+  grid-template-columns: 1fr;
+}
+
+/* Staggers every other figure so the gallery reads as a spread, not a table. */
+.noc-figure--raised {
+  padding-top: 72px;
+}
 
 /* --------------------------------------------------------------------------
    Shared blocks
@@ -700,7 +793,24 @@ svg {
   color: var(--c-text);
 }
 
-.noc-project-card:hover .noc-shot {
+/* Screenshots come in wildly different shapes, so the card crops them to a
+   common box from the top, where the interesting part of a page is. */
+.noc-project-card__shot {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--c-line-soft);
+  background: var(--c-surface);
+  transition: border-color 0.18s var(--ease);
+}
+
+.noc-project-card__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.noc-project-card:hover .noc-project-card__shot {
   border-color: var(--c-accent);
 }
 
@@ -869,13 +979,6 @@ svg {
   margin: 8px 0 0;
   font-size: 15px;
   font-weight: 400;
-}
-
-.noc-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 24px;
 }
 
 .noc-reason {
@@ -1230,8 +1333,14 @@ svg {
     grid-template-columns: 1fr 1fr;
   }
 
-  .noc-strip {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* The stagger costs vertical space it cannot earn back in one column. */
+  .noc-gallery {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .noc-figure--raised {
+    padding-top: 0;
   }
 }
 
@@ -1257,8 +1366,7 @@ svg {
 
   .noc-grid-2,
   .noc-grid-3,
-  .noc-included,
-  .noc-strip {
+  .noc-included {
     grid-template-columns: 1fr;
     gap: 24px;
   }

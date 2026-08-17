@@ -1,6 +1,11 @@
 ---
 layout: layouts/base.vto
 ---
+{{# The matting colour, frame border and shadow are per project — see the
+    `stage` object in src/_data/projects.js. They ride in as custom
+    properties so the CSS stays in global.css. #}}
+{{ set stage = `--stage-bg:${project.stage.bg}; --stage-shadow:${project.stage.shadow}; --stage-border:${project.stage.border}` }}
+
 <section class="noc-wrap noc-case-back">
   <a href="/work.html" class="noc-back">← Work</a>
 </section>
@@ -28,7 +33,18 @@ layout: layouts/base.vto
 </section>
 
 <section class="noc-wrap noc-case-hero">
-  <div class="noc-shot noc-shot--16x9"><span>{{ project.heroShot }}</span></div>
+  <div class="noc-stage" style="{{ stage }}">
+    <div class="noc-frame noc-frame--hero">
+      <div class="noc-frame__bar">
+        <span class="noc-frame__dot"></span>
+        <span class="noc-frame__dot"></span>
+        <span class="noc-frame__dot"></span>
+        <span class="noc-frame__url">{{ project.hero.url }}</span>
+      </div>
+      <img src="{{ project.hero.src }}" width="{{ project.hero.w }}" height="{{ project.hero.h }}"
+           alt="{{ project.name }} — {{ project.hero.url }}" fetchpriority="high" />
+    </div>
+  </div>
 </section>
 
 <section class="noc-wrap noc-section noc-split noc-reveal">
@@ -38,7 +54,13 @@ layout: layouts/base.vto
 
 <section class="noc-wrap noc-section--flush-top noc-grid-2 noc-reveal">
   {{- for tile of project.tiles }}
-  <div class="noc-shot noc-shot--1x1"><span>{{ tile }}</span></div>
+  <figure class="noc-figure" style="{{ stage }}">
+    <div class="noc-stage noc-stage--tile" style="--stage-bg:{{ tile.bg }}">
+      <img src="{{ tile.src }}" width="{{ tile.w }}" height="{{ tile.h }}"
+           alt="{{ project.name }} — {{ tile.label }}" loading="lazy" class="noc-tile-img" />
+    </div>
+    <figcaption>{{ tile.label }}</figcaption>
+  </figure>
   {{- /for }}
 </section>
 
@@ -58,10 +80,23 @@ layout: layouts/base.vto
 </section>
 
 <section class="noc-wrap noc-section--flush-top noc-reveal">
-  <div class="noc-shot noc-shot--21x9"><span>{{ project.wideShot }}</span></div>
-  <div class="noc-strip">
-    {{- for shot of project.strip }}
-    <div class="noc-shot noc-shot--3x4"><span>{{ shot }}</span></div>
+  <div class="noc-gallery{{ if project.galleryWide }} noc-gallery--single{{ /if }}">
+    {{- for item of project.gallery }}
+    <figure class="noc-figure{{ if item.raised }} noc-figure--raised{{ /if }}" style="{{ stage }}">
+      <div class="noc-stage" style="--stage-bg:{{ item.bg }}">
+        <div class="noc-frame">
+          <div class="noc-frame__bar">
+            <span class="noc-frame__dot"></span>
+            <span class="noc-frame__dot"></span>
+            <span class="noc-frame__dot"></span>
+            <span class="noc-frame__url">{{ item.url }}</span>
+          </div>
+          <img src="{{ item.src }}" width="{{ item.w }}" height="{{ item.h }}"
+               alt="{{ project.name }} — {{ item.label }}" loading="lazy" />
+        </div>
+      </div>
+      <figcaption>{{ item.label }}</figcaption>
+    </figure>
     {{- /for }}
   </div>
 </section>

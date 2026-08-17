@@ -55,10 +55,22 @@ every page. The same `nav` list renders both the header and the footer.
 
 **Projects** — edit `src/_data/projects.js`. One object per project. Adding an
 entry adds a row to `/work.html`, a card on the home page (first three only)
-and a case study at `/work/<slug>.html`; nothing else needs touching. The
-`shot`, `heroShot`, `wideShot`, `tiles` and `strip` fields are the captions
-of the hatched placeholder frames — swap each `.noc-shot` for an `<img>` as
-the real images arrive.
+and a case study at `/work/<slug>.html`; nothing else needs touching.
+
+Screenshots live in `src/public/shots` as **lossless WebP** — for flat UI
+captures it beats both PNG and lossy WebP, and it leaves type untouched:
+
+```sh
+ffmpeg -i shot.png -c:v libwebp -lossless 1 -compression_level 6 \
+  src/public/shots/shot.webp
+```
+
+Every image carries a `ratio` of `"width/height"`, which the templates turn
+into the `width`/`height` attributes so nothing shifts while it loads. Each
+project also has a `stage` — the colour its screenshots are matted on, plus
+the frame border and shadow. It is per project on purpose: a white desktop
+app and a dark web app cannot share a backdrop. In the gallery, `raised: true`
+drops a figure 72 px so the grid reads as a spread rather than a table.
 
 **Shared styles** — `src/global.css`. It is organised top-down: tokens, base,
 layout primitives, typography, then one block per part of the site.
