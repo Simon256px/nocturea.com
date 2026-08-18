@@ -26,14 +26,15 @@ active: work
   <aside class="noc-work-aside" aria-hidden="true">
     {{- for project of projects }}
     <div class="noc-work-preview">
-      <div class="noc-frame noc-frame--soft">
+      {{# --stage-bg mattes a contained shot in the project's own colour. #}}
+      <div class="noc-frame noc-frame--soft" style="--stage-bg:{{ project.stage.bg }}">
         <div class="noc-frame__bar">
           <span class="noc-frame__dot"></span>
           <span class="noc-frame__dot"></span>
           <span class="noc-frame__dot"></span>
         </div>
         <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
-             alt="" loading="lazy" />
+             alt="" loading="lazy" class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
       </div>
       <p class="noc-work-preview__name">{{ project.name }}</p>
       <p class="noc-body">{{ project.summary }}</p>

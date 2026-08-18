@@ -80,8 +80,8 @@ const projects = [
       },
       {
         label: "module grid, six slots",
-        src: "/public/shots/v1-tile-modules.webp",
-        ratio: "1/1",
+        src: "/public/shots/v1-tile-modules-grid.webp",
+        ratio: "848/352",
         bg: "#0f0f11",
       },
     ],
@@ -331,18 +331,31 @@ function dimensions(ratio) {
   return { w, h };
 }
 
+/** The shape of the preview box on /work.html. */
+const PREVIEW_RATIO = 4 / 3;
+
 // Everything the templates need is precomputed here, so the templates stay
 // free of logic. `next` is stored as plain fields rather than a reference to
 // the next project, to keep this data serialisable.
 export default projects.map((project, index) => {
   const next = projects[(index + 1) % projects.length];
+  const shot = dimensions(project.imageRatio);
 
   return {
     ...project,
     slug: slugify(project.name),
     num: ordinal(index),
     url: `/work/${slugify(project.name)}.html`,
-    image: { src: project.image, ...dimensions(project.imageRatio) },
+    image: {
+      src: project.image,
+      ...shot,
+      // Every preview is shown in the same 4/3 box. Cropping to it would cut
+      // the left and right edges off a wider screenshot, so those are fitted
+      // whole and the spare height is matted in the project's stage colour.
+      // Square and tall ones are cropped from the top instead, where the head
+      // of a page or an app window is.
+      fit: shot.w / shot.h > PREVIEW_RATIO ? "contain" : "cover",
+    },
     hero: { ...project.hero, ...dimensions(project.hero.ratio) },
     tiles: project.tiles.map((tile) => ({
       ...tile,

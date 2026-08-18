@@ -552,7 +552,8 @@ svg {
 .noc-frame img {
   width: 100%;
   height: auto;
-  background: #0a0a0c;
+  /* Only visible behind a contained shot — see .noc-preview-img--contain. */
+  background: var(--stage-bg, #0a0a0c);
 }
 
 .noc-frame__bar {
@@ -609,6 +610,24 @@ svg {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--c-text-4);
+}
+
+/* The Nocturea tiles pair a square mark with a wide module grid. Stretching
+   both stages to the row height and centring the shot inside keeps the two
+   level, instead of leaving the shorter one hanging beside the taller. */
+.noc-grid-2 > .noc-figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.noc-grid-2 > .noc-figure .noc-stage {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.noc-grid-2 > .noc-figure .noc-stage > * {
+  width: 100%;
 }
 
 /* A detail shot floats inside its matting rather than filling it. */
@@ -941,12 +960,22 @@ svg {
 
 /* The three screenshots are a square, a landscape and a very tall page. Left
    at their natural ratios the panel is sized by the tallest and the other two
-   float in dead space, so every preview is cropped to one box from the top —
-   where the head of a page or an app window actually is. */
-.noc-work-preview .noc-frame img {
+   float in dead space, so all three share one 4/3 box. How each one meets
+   that box is decided per image in src/_data/projects.js. */
+.noc-preview-img {
   aspect-ratio: 4 / 3;
+}
+
+/* Square or taller: crop from the top, where the head of a page is. */
+.noc-preview-img--cover {
   object-fit: cover;
   object-position: top center;
+}
+
+/* Wider than the box: show it whole rather than shaving its edges, matted
+   in the project's stage colour so the spare height is not a black bar. */
+.noc-preview-img--contain {
+  object-fit: contain;
 }
 
 .noc-work-preview__name {
