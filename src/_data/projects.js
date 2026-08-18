@@ -130,8 +130,12 @@ const projects = [
       "A Windows e-book reader rebuilt from a 122 MB Electron app into a 4.16 MB Tauri shell, with a Swiss-poster interface that stops at the edge of the page you read.",
     context:
       "Version 1 was 6,926 lines of Electron carrying its own layout engine and a 122 MB installer. Version 2 hands reading to foliate-js and the shell to Tauri 2, which rides the WebView2 already on every Windows machine: 3,626 lines, a 4.16 MB installer, around 30 MB of memory at rest. It reads EPUB, MOBI, AZW3, FB2 and CBZ, works offline, asks for no account and sends nothing anywhere.",
-    image: "/public/shots/ml-page-library.webp",
-    imageRatio: "838/540",
+    // Cut to the preview's own 4/3 rather than letting CSS crop the window
+    // capture: the library grid runs past the bottom of that capture, so any
+    // crop of it slices a row of covers. This one ends on a clean line after
+    // the first row, with the app's own background extended to fill 4/3.
+    image: "/public/shots/ml-page-library-4x3.webp",
+    imageRatio: "840/630",
     hero: {
       src: "/public/shots/ml-page-library.webp",
       ratio: "838/540",
