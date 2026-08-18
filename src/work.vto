@@ -1,12 +1,12 @@
 ---
 title: "Work — Nocturea"
-description: "Three in-house projects: a studio site, a desktop reading app and a scientific-news aggregator. Each one designed and built end to end."
+description: "Four projects: a studio site, a desktop reading app, a scientific-news aggregator and a streetwear identity. Each one designed and built end to end."
 active: work
 ---
 <section class="noc-wrap noc-section--hero">
   <p class="noc-eyebrow noc-eyebrow--head">Work</p>
-  <h1 class="noc-h1">Three projects, each one started on a blank page.</h1>
-  <p class="noc-lead noc-hero-lead">A studio site, a desktop reading app and a scientific-news aggregator — designed and built end to end. Hover a row to see the work; open it to read why it looks the way it does.</p>
+  <h1 class="noc-h1">Four projects, each one started on a blank page.</h1>
+  <p class="noc-lead noc-hero-lead">A studio site, a desktop reading app, a scientific-news aggregator and a streetwear identity — designed and built end to end. Hover a row to see the work; open it to read why it looks the way it does.</p>
 </section>
 
 <section class="noc-wrap noc-work">
@@ -26,7 +26,9 @@ active: work
   <aside class="noc-work-aside" aria-hidden="true">
     {{- for project of projects }}
     <div class="noc-work-preview">
-      {{# --stage-bg mattes a contained shot in the project's own colour. #}}
+      {{# --stage-bg mattes a contained shot in the project's own colour.
+          Photography gets no window chrome — see `framed` in projects.js. #}}
+      {{- if project.framed }}
       <div class="noc-frame noc-frame--soft" style="--stage-bg:{{ project.stage.bg }}">
         <div class="noc-frame__bar">
           <span class="noc-frame__dot"></span>
@@ -36,6 +38,11 @@ active: work
         <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
              alt="" loading="lazy" class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
       </div>
+      {{- else }}
+      <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
+           alt="" loading="lazy" style="--stage-bg:{{ project.stage.bg }}"
+           class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
+      {{- /if }}
       <p class="noc-work-preview__name">{{ project.name }}</p>
       <p class="noc-body">{{ project.summary }}</p>
     </div>

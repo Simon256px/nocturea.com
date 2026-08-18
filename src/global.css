@@ -612,6 +612,27 @@ svg {
   color: var(--c-text-4);
 }
 
+/* An image shown on its stage with no window chrome: photography, garment
+   mockups, anything that is not a screen. It still takes the project's
+   border and shadow, which for a photograph are usually none. */
+.noc-plate {
+  width: 100%;
+  height: auto;
+  border: var(--stage-border, 1px solid var(--c-line-soft));
+  box-shadow: var(--stage-shadow, 0 30px 80px rgb(0 0 0 / 0.5));
+}
+
+.noc-plate--hero {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+/* Unframed previews are bare images, so the matte lives on the image. */
+.noc-work-preview > .noc-preview-img {
+  background: var(--stage-bg, #0a0a0c);
+  border-radius: 10px;
+}
+
 /* The Nocturea tiles pair a square mark with a wide module grid. Stretching
    both stages to the row height and centring the shot inside keeps the two
    level, instead of leaving the shorter one hanging beside the taller. */
@@ -964,6 +985,10 @@ svg {
    that box is decided per image in src/_data/projects.js. */
 .noc-preview-img {
   aspect-ratio: 4 / 3;
+  /* height:auto is load-bearing: without it the height attribute wins over
+     the ratio on an unframed preview, which has no .noc-frame img rule. */
+  width: 100%;
+  height: auto;
 }
 
 /* Square or taller: crop from the top, where the head of a page is. */

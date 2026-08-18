@@ -312,14 +312,113 @@ const projects = [
       },
     ],
   },
+  {
+    name: "POP'S",
+    client: "POP'S",
+    kind: "Brand identity + apparel",
+    year: "2026",
+    duration: "Six weeks",
+    summary:
+      "A streetwear label built on one character: a waving bear in sunglasses, printed in a single flat colour across seven colourways and a five-piece drop.",
+    context:
+      "POP'S is a clothing brand whose entire identity fits on the back of a t-shirt: a mascot, a wordmark set on an arc above it, and nothing else. The system is drawn as one outlined shape so it can be printed in a single flat colour on any garment colour, screen or DTG, from a 40 cm back panel down to a 6 cm pocket hit. Seven colourways carry the whole range, and each piece of the drop uses exactly one of them.",
+    // The only project shot on garments rather than on screens, so none of
+    // its images take the window chrome the software projects use.
+    framed: false,
+    image: "/public/shots/pops-hero-lifestyle.webp",
+    imageRatio: "1200/1600",
+    hero: {
+      src: "/public/shots/pops-hero-lifestyle.webp",
+      ratio: "1200/1600",
+      alt: "tee and tote, worn",
+    },
+    stage: {
+      bg: "#f2f0ec",
+      shadow: "none",
+      border: "none",
+    },
+    reasons: [
+      {
+        title: "One character does the work of a logo",
+        body:
+          "There is no abstract mark to explain alongside the mascot. The bear is the signature: recognisable at pocket scale, readable from across a car park on a back print, and enough on its own on a cap or a tote without any lock-up.",
+      },
+      {
+        title: "Single colour, flat, no gradient",
+        body:
+          "Every print is one ink. The outline carries the drawing and the fill carries the colourway, so a garment costs the same to produce in green as in red and the artwork survives being placed on white, black or natural canvas.",
+      },
+      {
+        title: "The wordmark rides an arc",
+        body:
+          "POP'S ! is set on a curve above the bear's raised hand rather than on a baseline. The arc keeps the pair reading as one shape instead of a logo with a caption, and it leaves the character's silhouette intact.",
+      },
+      {
+        title: "Seven colourways, one per piece",
+        body:
+          "Green, blue, red, yellow, purple, orange and cream. A piece never mixes two of them — the range gets its variety from the garment count, not from stacking colours inside a single print.",
+      },
+      {
+        title: "Placement decided on mockups first",
+        body:
+          "Back panel, chest pocket, hood back and tote face were each proofed as a mockup before any file went to print, so scale and vertical placement were settled per garment rather than reusing one export everywhere.",
+      },
+    ],
+    deliverables: [
+      "Mascot artwork, outlined for single-colour print",
+      "Arc-set POP'S wordmark and lock-up",
+      "Seven-colourway palette, one ink per piece",
+      "Print-ready files: back, pocket, hood, tote, cap",
+      "Garment mockups for placement approval",
+    ],
+    tiles: [
+      {
+        label: "seven colourways, one ink each",
+        src: "/public/shots/pops-detail-colorways.webp",
+        ratio: "1100/752",
+        bg: "#2a2724",
+      },
+      {
+        label: "mascot and arc wordmark",
+        src: "/public/shots/pops-detail-mark.webp",
+        ratio: "1100/752",
+        bg: "#e6e3dd",
+      },
+    ],
+    gallery: [
+      {
+        label: "Hoodie, front print in red",
+        src: "/public/shots/pops-hoodie-red-front.webp",
+        ratio: "1100/826",
+        bg: "#f2f0ec",
+        raised: false,
+      },
+      {
+        label: "Hoodie, back print in blue",
+        src: "/public/shots/pops-hoodie-blue-back.webp",
+        ratio: "1100/826",
+        bg: "#e6e3dd",
+        raised: true,
+      },
+      {
+        label: "Oversized tee, yellow print",
+        src: "/public/shots/pops-tee-yellow.webp",
+        ratio: "1100/564",
+        bg: "#f2f0ec",
+        raised: false,
+      },
+    ],
+  },
 ];
 
-/** "CNRS//FLUX" -> "cnrs-flux". Strips accents so the URL stays ASCII. */
+/** "CNRS//FLUX" -> "cnrs-flux", "POP'S" -> "pops". ASCII only. */
 function slugify(name) {
   return name
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
     .toLowerCase()
+    // Apostrophes close a word rather than break it: pops, not pop-s.
+    .replace(/['’]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
@@ -350,6 +449,8 @@ export default projects.map((project, index) => {
     slug: slugify(project.name),
     num: ordinal(index),
     url: `/work/${slugify(project.name)}.html`,
+    // Screens get the window chrome; photography opts out with framed: false.
+    framed: project.framed !== false,
     image: {
       src: project.image,
       ...shot,
@@ -368,6 +469,7 @@ export default projects.map((project, index) => {
     gallery: project.gallery.map((item) => ({
       ...item,
       ...dimensions(item.ratio),
+      framed: (item.framed ?? project.framed) !== false,
     })),
     // One column reads better than a lonely half-width figure.
     galleryWide: project.gallery.length === 1,

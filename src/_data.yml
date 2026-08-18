@@ -12,7 +12,7 @@ fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;90
 # that. Bump this whenever global.css or nocturea-mark.svg changes, otherwise
 # returning visitors keep the old one: that is how the green mark survived the
 # rebrand in tabs that had already seen it.
-assetVersion: "2026-08-18f"
+assetVersion: "2026-08-18h"
 
 # Drives both the header nav and the footer links.
 nav:

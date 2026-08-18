@@ -32,8 +32,11 @@ layout: layouts/base.vto
   </div>
 </section>
 
+{{# `framed` is false for photography and garment mockups: a window chrome
+    around a photograph would claim it is a screenshot. #}}
 <section class="noc-wrap noc-case-hero">
   <div class="noc-stage" style="{{ stage }}">
+    {{- if project.framed }}
     <div class="noc-frame noc-frame--hero">
       <div class="noc-frame__bar">
         <span class="noc-frame__dot"></span>
@@ -44,6 +47,11 @@ layout: layouts/base.vto
       <img src="{{ project.hero.src }}" width="{{ project.hero.w }}" height="{{ project.hero.h }}"
            alt="{{ project.name }} — {{ project.hero.url }}" fetchpriority="high" />
     </div>
+    {{- else }}
+    <img class="noc-plate noc-plate--hero" src="{{ project.hero.src }}"
+         width="{{ project.hero.w }}" height="{{ project.hero.h }}"
+         alt="{{ project.name }} — {{ project.hero.alt }}" fetchpriority="high" />
+    {{- /if }}
   </div>
 </section>
 
@@ -84,6 +92,7 @@ layout: layouts/base.vto
     {{- for item of project.gallery }}
     <figure class="noc-figure{{ if item.raised }} noc-figure--raised{{ /if }}" style="{{ stage }}">
       <div class="noc-stage" style="--stage-bg:{{ item.bg }}">
+        {{- if item.framed }}
         <div class="noc-frame">
           <div class="noc-frame__bar">
             <span class="noc-frame__dot"></span>
@@ -94,6 +103,10 @@ layout: layouts/base.vto
           <img src="{{ item.src }}" width="{{ item.w }}" height="{{ item.h }}"
                alt="{{ project.name }} — {{ item.label }}" loading="lazy" />
         </div>
+        {{- else }}
+        <img class="noc-plate" src="{{ item.src }}" width="{{ item.w }}" height="{{ item.h }}"
+             alt="{{ project.name }} — {{ item.label }}" loading="lazy" />
+        {{- /if }}
       </div>
       <figcaption>{{ item.label }}</figcaption>
     </figure>
