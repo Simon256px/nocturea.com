@@ -36,11 +36,13 @@ active: work
           <span class="noc-frame__dot"></span>
         </div>
         <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
-             alt="" loading="lazy" class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
+             alt="" loading="lazy" style="--shot-pos:{{ project.image.position }}"
+             class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
       </div>
       {{- else }}
       <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
-           alt="" loading="lazy" style="--stage-bg:{{ project.stage.bg }}"
+           alt="" loading="lazy"
+           style="--stage-bg:{{ project.stage.bg }}; --shot-pos:{{ project.image.position }}"
            class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
       {{- /if }}
       <p class="noc-work-preview__name">{{ project.name }}</p>

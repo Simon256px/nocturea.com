@@ -325,12 +325,16 @@ const projects = [
     // The only project shot on garments rather than on screens, so none of
     // its images take the window chrome the software projects use.
     framed: false,
-    image: "/public/shots/pops-hero-lifestyle.webp",
-    imageRatio: "1200/1600",
+    image: "/public/shots/pops-hero-tee-blue.webp",
+    imageRatio: "1122/1402",
+    // A portrait photo cropped to the preview's 4/3 from the top would cut
+    // the mascot off at the knees. Nudging the window down keeps the whole
+    // print, and her face, inside it.
+    imagePosition: "center 30%",
     hero: {
-      src: "/public/shots/pops-hero-lifestyle.webp",
-      ratio: "1200/1600",
-      alt: "tee and tote, worn",
+      src: "/public/shots/pops-hero-tee-blue.webp",
+      ratio: "1122/1402",
+      alt: "oversized tee, blue print",
     },
     stage: {
       bg: "#f2f0ec",
@@ -460,6 +464,9 @@ export default projects.map((project, index) => {
       // Square and tall ones are cropped from the top instead, where the head
       // of a page or an app window is.
       fit: shot.w / shot.h > PREVIEW_RATIO ? "contain" : "cover",
+      // Where a cropped preview takes its window from. The head of a page is
+      // at the top; a photograph usually has its subject lower.
+      position: project.imagePosition ?? "top center",
     },
     hero: { ...project.hero, ...dimensions(project.hero.ratio) },
     tiles: project.tiles.map((tile) => ({

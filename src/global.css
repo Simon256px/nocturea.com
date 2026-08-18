@@ -991,10 +991,11 @@ svg {
   height: auto;
 }
 
-/* Square or taller: crop from the top, where the head of a page is. */
+/* Square or taller: crop from the top by default, where the head of a page
+   is. --shot-pos moves the window for images whose subject sits lower. */
 .noc-preview-img--cover {
   object-fit: cover;
-  object-position: top center;
+  object-position: var(--shot-pos, top center);
 }
 
 /* Wider than the box: show it whole rather than shaving its edges, matted
