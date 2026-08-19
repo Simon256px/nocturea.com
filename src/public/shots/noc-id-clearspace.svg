@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="1000" height="1000" role="img" aria-label="Clearspace: a margin of one quarter of the mark width on every side">
+  <!-- A quarter of the mark's 68-unit width is 17. The mark is not square,
+       though: the dome's arc peaks at 14.8, so its visual box is 68 x 69.2
+       and the box that clears it by 17 on every side is 102 x 103.2. -->
+  <rect width="200" height="200" fill="#0a0908" />
+  <rect x="49" y="47.8" width="102" height="103.2" fill="none"
+        stroke="#c9a37a" stroke-opacity=".45" stroke-width=".8" stroke-dasharray="4 3" />
+  <g transform="translate(50 50)" fill="#eae7e2">
+    <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+  </g>
+</svg>

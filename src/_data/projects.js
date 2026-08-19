@@ -413,6 +413,112 @@ const projects = [
       },
     ],
   },
+  {
+    name: "Nocturea Identity",
+    client: "Nocturea — in-house",
+    kind: "Mark and guidelines",
+    year: "2026",
+    duration: "In-house, ongoing",
+    summary:
+      "The studio's own mark, drawn from a single 68-unit module: a dome, a quarter and a spark, with the grid, clearspace and minimum sizes written down.",
+    context:
+      "The mark existed before anything was written about it, which meant every new use re-decided its size and its margins. This is the drawing put back on its grid and the rules set down: one module and one inscribed radius generate every edge, the clearspace is derived from the mark's own width rather than picked, and there is one stated point — 24 px — below which the spark is dropped instead of being allowed to fill in.",
+    // Vector plates rather than screenshots, and no window chrome around
+    // them: these are drawings, not screens.
+    framed: false,
+    // Every plate is text-free on purpose. The wording is carried by the
+    // page's captions, so it is set in the site's own Archivo.
+    image: "/public/shots/noc-id-mark.svg",
+    imageRatio: "1200/900",
+    hero: {
+      src: "/public/shots/noc-id-mark.svg",
+      ratio: "1200/900",
+      alt: "the mark on midnight",
+    },
+    stage: {
+      bg: "#14120f",
+      shadow: "none",
+      border: "1px solid rgba(234, 231, 226, .14)",
+    },
+    reasons: [
+      {
+        title: "One module generates every edge",
+        body:
+          "A 68-unit square and the R34 circle inscribed in it produce the dome, the ground line and the quadrant. Nothing in the mark is placed by eye, so it can be redrawn at any size from the two numbers rather than from a traced file.",
+      },
+      {
+        title: "Three parts, each doing one job",
+        body:
+          "The dome is the night sky flattened to a half circle at the horizon. The quarter is the ground, and taking only one of the four keeps the mark asymmetric so it never reads as a generic roundel. The spark sits in the empty quadrant and sets the optical centre.",
+      },
+      {
+        title: "Clearspace derived, not chosen",
+        body:
+          "The margin is a quarter of the mark's width on every side. Because it scales with the drawing, the rule holds on a favicon and on a wall without anyone converting it into pixels first.",
+      },
+      {
+        title: "A stated floor, and what gives way at it",
+        body:
+          "Below 24 px the spark's concave curves fill in and the mark turns to mud, so the guideline drops the spark rather than letting it degrade. The dome and quarter alone still read as the same brand.",
+      },
+      {
+        title: "Four colours, one of them warm",
+        body:
+          "Midnight, Bone and Slate carry the system; Lamplight is the single warm note and is reserved for accents, never for the mark itself. Holding the mark to Bone or Midnight is what lets it invert cleanly onto any of the others.",
+      },
+    ],
+    deliverables: [
+      "Mark as vector, with its construction grid",
+      "Component breakdown: dome, quarter, spark",
+      "Clearspace and minimum-size rules",
+      "Reduced form for use below 24 px",
+      "Four-colour palette with reversal pairs",
+    ],
+    tiles: [
+      {
+        label: "one module, one inscribed radius",
+        src: "/public/shots/noc-id-construction.svg",
+        ratio: "1000/1000",
+        bg: "#14120f",
+      },
+      {
+        label: "clearspace, a quarter of the mark width",
+        src: "/public/shots/noc-id-clearspace.svg",
+        ratio: "1000/1000",
+        bg: "#14120f",
+      },
+    ],
+    gallery: [
+      {
+        label: "The dome, the quarter, the spark",
+        src: "/public/shots/noc-id-anatomy.svg",
+        ratio: "1200/420",
+        bg: "#14120f",
+        raised: false,
+      },
+      {
+        label: "120, 56 and 24 px — the last without its spark",
+        src: "/public/shots/noc-id-scale.svg",
+        ratio: "1200/420",
+        bg: "#14120f",
+        raised: true,
+      },
+      {
+        label: "Midnight, Bone, Lamplight, Slate",
+        src: "/public/shots/noc-id-palette.svg",
+        ratio: "1200/420",
+        bg: "#14120f",
+        raised: false,
+      },
+      {
+        label: "Reversed: bone on slate, midnight on bone",
+        src: "/public/shots/noc-id-applied.svg",
+        ratio: "1200/600",
+        bg: "#14120f",
+        raised: true,
+      },
+    ],
+  },
 ];
 
 /** "CNRS//FLUX" -> "cnrs-flux", "POP'S" -> "pops". ASCII only. */

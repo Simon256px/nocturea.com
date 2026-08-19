@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="The three parts of the mark: the dome, the quarter and the spark">
+  <!-- The mark taken apart: dome, quarter, spark, one per cell. -->
+  <rect width="1200" height="420" fill="#0a0908" />
+  <g stroke="#eae7e2" stroke-opacity=".12" stroke-width="1">
+    <line x1="400" y1="0" x2="400" y2="420" />
+    <line x1="800" y1="0" x2="800" y2="420" />
+  </g>
+  <g fill="#eae7e2">
+    <g transform="translate(110 120) scale(1.8)">
+      <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    </g>
+    <g transform="translate(510 120) scale(1.8)">
+      <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    </g>
+    <g transform="translate(910 120) scale(1.8)">
+      <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 116 116" width="1000" height="1000" role="img" aria-label="The mark over its construction grid">
+  <!-- The mark drawn back onto the grid it came from: one 68-unit module,
+       its inscribed R34 circle, the axes and the quadrant diagonal. -->
+  <rect x="-8" y="-8" width="116" height="116" fill="#0d0c0a" />
+  <g stroke="#c9a37a" stroke-opacity=".32" stroke-width=".5" fill="none">
+    <rect x="16" y="16" width="68" height="68" />
+    <line x1="50" y1="-8" x2="50" y2="108" />
+    <line x1="-8" y1="50" x2="108" y2="50" />
+    <circle cx="50" cy="50" r="34" />
+    <line x1="16" y1="16" x2="84" y2="84" />
+  </g>
+  <g fill="#eae7e2" fill-opacity=".92">
+    <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+  </g>
+</svg>

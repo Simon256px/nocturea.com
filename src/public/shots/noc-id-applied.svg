@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="The mark reversed: bone on slate, and midnight on bone">
+  <!-- The only two lockups that ship: the mark in Bone on Slate, and the
+       same drawing inverted to Midnight on Bone. -->
+  <rect width="1200" height="600" fill="#0a0908" />
+
+  <rect x="90" y="60" width="480" height="480" fill="#1c1a17" />
+  <g transform="translate(248 218) scale(1.63)" fill="#eae7e2">
+    <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+  </g>
+
+  <rect x="630" y="60" width="480" height="480" fill="#eae7e2" />
+  <g transform="translate(788 218) scale(1.63)" fill="#0a0908">
+    <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+  </g>
+</svg>

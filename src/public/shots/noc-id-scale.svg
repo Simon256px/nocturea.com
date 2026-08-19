@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="The mark at 120, 56 and 24 pixels, the smallest without its spark">
+  <!-- Three sizes in the 120 / 56 / 24 proportion, sitting on one baseline.
+       The mark's visual box runs 16 to 84 in both axes, so each group is
+       translated by 84 x scale to put its foot on y = 330, not by 100. -->
+  <rect width="1200" height="420" fill="#0a0908" />
+  <line x1="320" y1="330" x2="880" y2="330" stroke="#eae7e2" stroke-opacity=".12" stroke-width="1" />
+
+  <g fill="#eae7e2">
+    <!-- 120 px -->
+    <g transform="translate(318 120) scale(2.5)">
+      <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+      <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+      <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+    </g>
+    <!-- 56 px -->
+    <g transform="translate(589 232) scale(1.166)">
+      <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+      <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+      <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+    </g>
+    <!-- 24 px, spark dropped -->
+    <g transform="translate(800 288) scale(0.5)">
+      <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+      <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    </g>
+  </g>
+</svg>

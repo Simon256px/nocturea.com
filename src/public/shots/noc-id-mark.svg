@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="The Nocturea mark on midnight">
+  <!-- Lead plate: the mark at rest. Text is deliberately absent from every
+       plate in this set so the page's own Archivo captions carry the words. -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a37a" stop-opacity=".17" />
+      <stop offset="68%" stop-color="#0a0908" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#0a0908" />
+  <circle cx="600" cy="450" r="430" fill="url(#glow)" />
+  <g transform="translate(450 300) scale(3)" fill="#eae7e2">
+    <path d="M16,48.8 A34,34 0 0 1 84,48.8 L84,48.8 Z" />
+    <path d="M16,51.2 L48.8,51.2 L48.8,84 A32.8,32.8 0 0 1 16,51.2 Z" />
+    <path d="M65.64,54.08 Q68.88,62.40 77.20,65.64 Q68.88,68.88 65.64,77.20 Q62.40,68.88 54.08,65.64 Q62.40,62.40 65.64,54.08 Z" />
+  </g>
+</svg>

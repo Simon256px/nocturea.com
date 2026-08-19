@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Four colours: Midnight, Bone, Lamplight and Slate">
+  <!-- Midnight, Bone, Lamplight, Slate. Midnight carries a hairline so it
+       stays legible against the mat it sits on. -->
+  <rect width="1200" height="420" fill="#14120f" />
+  <g>
+    <rect x="40" y="40" width="262" height="340" fill="#0a0908" stroke="#eae7e2" stroke-opacity=".18" stroke-width="1" />
+    <rect x="326" y="40" width="262" height="340" fill="#eae7e2" />
+    <rect x="612" y="40" width="262" height="340" fill="#c9a37a" />
+    <rect x="898" y="40" width="262" height="340" fill="#1c1a17" stroke="#eae7e2" stroke-opacity=".18" stroke-width="1" />
+  </g>
+</svg>
