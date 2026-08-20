@@ -26,9 +26,12 @@ active: work
   <aside class="noc-work-aside" aria-hidden="true">
     {{- for project of projects }}
     <div class="noc-work-preview">
-      {{# --stage-bg mattes a contained shot in the project's own colour.
-          Photography gets no window chrome — see `framed` in projects.js. #}}
-      {{- if project.framed }}
+      {{# Every preview is framed, whatever the project's `framed` setting —
+          that flag governs the case study, where a photograph must not be
+          dressed as a screenshot. Here the frame is the component: dropping
+          it for one project shortens that preview by the height of the title
+          bar and pulls its caption 27px out of line with the rest.
+          --stage-bg mattes a contained shot in the project's own colour. #}}
       <div class="noc-frame noc-frame--soft" style="--stage-bg:{{ project.stage.bg }}">
         <div class="noc-frame__bar">
           <span class="noc-frame__dot"></span>
@@ -39,12 +42,6 @@ active: work
              alt="" loading="lazy" style="--shot-pos:{{ project.image.position }}"
              class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
       </div>
-      {{- else }}
-      <img src="{{ project.image.src }}" width="{{ project.image.w }}" height="{{ project.image.h }}"
-           alt="" loading="lazy"
-           style="--stage-bg:{{ project.stage.bg }}; --shot-pos:{{ project.image.position }}"
-           class="noc-preview-img noc-preview-img--{{ project.image.fit }}" />
-      {{- /if }}
       <p class="noc-work-preview__name">{{ project.name }}</p>
       <p class="noc-body">{{ project.summary }}</p>
     </div>

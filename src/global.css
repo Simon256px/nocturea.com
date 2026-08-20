@@ -627,12 +627,6 @@ svg {
   margin-inline: auto;
 }
 
-/* Unframed previews are bare images, so the matte lives on the image. */
-.noc-work-preview > .noc-preview-img {
-  background: var(--stage-bg, #0a0a0c);
-  border-radius: 10px;
-}
-
 /* The Nocturea tiles pair a square mark with a wide module grid. Stretching
    both stages to the row height and centring the shot inside keeps the two
    level, instead of leaving the shorter one hanging beside the taller. */
