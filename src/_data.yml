@@ -2,7 +2,12 @@
 # so the nav, footer and copyright live in exactly one place.
 layout: layouts/base.vto
 
-ogImage: https://nocturea.com/public/nocturea-og.png
+# No share image. The old one still carried the green Minecraft-era mark, so
+# link previews were advertising the previous brand. Until a replacement is
+# exported, previews fall back to title and description alone — set this to an
+# absolute URL and the og:image and large Twitter card come back on their own.
+ogImage: ""
+
 copyright: "© 2020 – 2027 Nocturea"
 fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;900&display=swap"
 
@@ -12,7 +17,7 @@ fonts: "https://fonts.googleapis.com/css2?family=Archivo:wght@200;400;500;700;90
 # that. Bump this whenever global.css or nocturea-mark.svg changes, otherwise
 # returning visitors keep the old one: that is how the green mark survived the
 # rebrand in tabs that had already seen it.
-assetVersion: "2026-08-19c"
+assetVersion: "2026-08-19d"
 
 # Drives both the header nav and the footer links.
 nav:
