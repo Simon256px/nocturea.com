@@ -418,6 +418,123 @@ const projects = [
       },
     ],
   },
+  {
+    name: "Zikenstock",
+    client: "Festival Zikenstock — Le Cateau-Cambrésis (59)",
+    kind: "Festival website",
+    year: "2026",
+    duration: "19th edition — 5, 6, 7 May",
+    summary:
+      "The site for the nineteenth edition of an alternative-rock festival: one page, nineteen bands, three nights, and one thing asked of the visitor — take a ticket.",
+    context:
+      "Zikenstock is a volunteer-run alternative-rock festival held in the cattle market of Le Cateau-Cambrésis. Nineteenth edition, three days in May, nineteen punk, oi!, ska and hardcore bands, free camping and free entry under twelve. Ticketing belongs to two resellers, Placeminute and Ronce Records: the site takes no money, it makes the case. That constraint set the structure. Since the transaction ends somewhere else, the page has one job — carry a cold visitor to the outbound click certain they have seen everything: the line-up, the times, the price, the place, what is included. One page, eight sections, no navigation to learn.",
+    // The two shots carrying photography are lossy WebP at quality 92; the
+    // flat sections stay lossless. Losslessly encoded, the home shot alone is
+    // 776 kB, which is six times the whole page around it.
+    image: "/public/shots/zk-page-home.webp",
+    imageRatio: "1752/954",
+    hero: {
+      src: "/public/shots/zk-page-home.webp",
+      ratio: "1752/954",
+      url: "zikenstock.fr",
+    },
+    stage: {
+      bg: "#0b0a0a",
+      shadow: "0 40px 120px rgba(0, 0, 0, .6)",
+      border: "1px solid #241a17",
+    },
+    reasons: [
+      {
+        title: "One page, not a site",
+        body:
+          "A festival is decided in a single visit. Splitting the line-up, the schedule and the prices across three pages adds two chances to give up between wanting to go and paying. Everything sits in one vertical column, and the menu does not navigate — it scrolls. Six anchors: artists, schedule, tickets, gallery, information, shop.",
+      },
+      {
+        title: "The poster is text",
+        body:
+          "The nineteen names are set in decreasing sizes, from Krav Boca down to Oi Boys: the hierarchy of the poster reads at a glance, and every name stays selectable, copyable and indexable. A festival whose line-up is a JPEG is a festival nobody finds while searching for The Toy Dolls in the north of France.",
+      },
+      {
+        title: "Three days visible at the same time",
+        body:
+          "The schedule has no day picker. Friday, Saturday and Sunday are three columns side by side, each band on its real slot, from 15h00 to 01h45. That is exactly the comparison a festival-goer makes before choosing between a 29 € day ticket and the 69 € three-day pass; hiding it behind a tab hides the argument for the pass.",
+      },
+      {
+        title: "The price arrives with what it contains",
+        body:
+          "The three tiers — 29 €, 49 €, 69 € — sit in three cards that each repeat the same four lines: days covered, free under twelve, food and bar on site, free camping. The repetition is deliberate. Nobody scrolls back up to read the small print on another card, and the three-day pass carries its “Le + malin” tag without having to explain it.",
+      },
+      {
+        title: "The exit to the ticket shop is announced",
+        body:
+          "The buy button says what is about to happen: Acheter un billet — Placeminute, dès 29 €. Both resellers are named at the foot of the ticket section and again in the footer. A disguised outbound link costs trust at the exact moment trust is worth most; an announced one costs nothing.",
+      },
+      {
+        title: "The photographs do the work text cannot",
+        body:
+          "The feel of a punk festival is not described, it is shown. Yann Plastic Bertrand's prints from previous editions open the page as a tilted collage and come back full-frame further down, credited. No generic imagery and no stock crowd: only Zikenstock.",
+      },
+      {
+        title: "The practical questions, in the order they are asked",
+        body:
+          "Four numbered cards close the page: camping, children, merch, getting there. These are the four objections left once the line-up has been accepted. The last one gives the exact address, avenue du Maréchal De Lattre De Tassigny, with the landmark that actually helps on the ground — next to the vehicle inspection centre — and a link to the map.",
+      },
+      {
+        title: "Quiet on the surface, loud in the detail",
+        body:
+          "Near-black, one red, a condensed face for the headings. The scrolling banner of what is included, the grain of the prints and the offsets of the collage carry the energy; everything else holds still, so that nineteen names and their start times stay readable on a phone, in the street.",
+      },
+    ],
+    deliverables: [
+      "One-page festival site, six anchors, art direction and build",
+      "Line-up of nineteen bands set as type, hierarchy by size",
+      "Three-day schedule at half-hour precision, all of it visible at once",
+      "Three ticket tiers with their inclusions and an announced exit to Placeminute and Ronce Records",
+      "Credited gallery of the previous editions",
+      "Four practical cards — free camping, free under twelve, merch, directions and map",
+      "Shop announced as coming soon, ready to open without a rebuild",
+    ],
+    tiles: [
+      {
+        label: "nineteen names, hierarchy by size",
+        src: "/public/shots/zk-detail-affiche.webp",
+        ratio: "1752/674",
+        bg: "#e5341f",
+      },
+      {
+        label: "three days side by side, real slots",
+        src: "/public/shots/zk-detail-programme.webp",
+        ratio: "1752/716",
+        bg: "#0b0a0a",
+      },
+    ],
+    gallery: [
+      {
+        label: "Tickets — 29 €, 49 €, 69 €, inclusions repeated",
+        src: "/public/shots/zk-section-billets.webp",
+        ratio: "1752/620",
+        url: "zikenstock.fr/#billets",
+        bg: "#efe9df",
+        raised: false,
+      },
+      {
+        label: "Practical information — camping, children, merch, access",
+        src: "/public/shots/zk-section-infos.webp",
+        ratio: "1752/486",
+        url: "zikenstock.fr/#infos",
+        bg: "#efe9df",
+        raised: true,
+      },
+      {
+        label: "Shop announced, resellers repeated in the footer",
+        src: "/public/shots/zk-section-boutique.webp",
+        ratio: "1752/830",
+        url: "zikenstock.fr/#boutique",
+        bg: "#0b0a0a",
+        raised: false,
+      },
+    ],
+  },
 ];
 
 /** "CNRS//FLUX" -> "cnrs-flux", "Ren'ai" -> "renai". ASCII only. */

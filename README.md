@@ -65,6 +65,14 @@ ffmpeg -i shot.png -c:v libwebp -lossless 1 -compression_level 6 \
   src/public/shots/shot.webp
 ```
 
+A shot carrying photography is the exception: lossless has nothing to exploit
+in a photograph, so the file balloons — the Zikenstock home shot is 776 kB
+losslessly and 122 kB at quality 92. Those go out lossy instead:
+
+```sh
+ffmpeg -i shot.png -c:v libwebp -quality 92 src/public/shots/shot.webp
+```
+
 Every image carries a `ratio` of `"width/height"`, which the templates turn
 into the `width`/`height` attributes so nothing shifts while it loads. Each
 project also has a `stage` — the colour its screenshots are matted on, plus
