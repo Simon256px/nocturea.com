@@ -420,10 +420,9 @@ const projects = [
   },
   {
     name: "Zikenstock",
-    client: "Festival Zikenstock — Le Cateau-Cambrésis (59)",
+    client: "Festival Zikenstock",
     kind: "Festival website",
     year: "2026",
-    duration: "19th edition — 5, 6, 7 May",
     summary:
       "The site for the nineteenth edition of an alternative-rock festival: one page, nineteen bands, three nights, and one thing asked of the visitor — take a ticket.",
     context:
@@ -431,8 +430,13 @@ const projects = [
     // The two shots carrying photography are lossy WebP at quality 92; the
     // flat sections stay lossless. Losslessly encoded, the home shot alone is
     // 776 kB, which is six times the whole page around it.
-    image: "/public/shots/zk-page-home.webp",
-    imageRatio: "1752/954",
+    //
+    // The preview is cut to the 4/3 of its box rather than fitted inside it.
+    // The window capture is 1.84 wide, so containing it left a black band
+    // above and below. This one runs from the header down to the end of the
+    // hero strip, with the page's own #0b0a0a extended by 166px to reach 4/3.
+    image: "/public/shots/zk-page-home-4x3.webp",
+    imageRatio: "1752/1314",
     hero: {
       src: "/public/shots/zk-page-home.webp",
       ratio: "1752/954",

@@ -25,10 +25,14 @@ layout: layouts/base.vto
       <span class="noc-kicker">Year</span>
       <p class="noc-case-meta__value">{{ project.year }}</p>
     </div>
+    {{# Duration is optional. A festival site has no mission length worth
+        stating, and a fourth cell holding a stand-in reads worse than three. #}}
+    {{- if project.duration }}
     <div>
       <span class="noc-kicker">Duration</span>
       <p class="noc-case-meta__value">{{ project.duration }}</p>
     </div>
+    {{- /if }}
   </div>
 </section>
 
